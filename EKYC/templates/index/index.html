@@ -1,0 +1,167 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- index22:59-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="shortcut icon" type="image/x-icon">
+    <title>EKYC</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'homepage/assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'homepage/assets/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'homepage/assets/css/style.css' %}">
+    <!--[if lt IE 9]>
+		<script src="{% static 'homepage/assets/js/html5shiv.min.js' %}"></script>
+		<script src="{% static 'homepage/assets/js/respond.min.js' %}"></script>
+	<![endif]-->
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <div class="header">
+			<div class="header-left">
+				<a href="" class="logo">
+					<img src="{% static 'homepage/assets/img/logo.png' %}" width="35" height="35" alt=""><span>Multi Level</span>
+				</a>
+			</div>
+			<a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
+            <ul class="nav user-menu float-right">
+<!--                <li class="nav-item dropdown d-none d-sm-block">-->
+<!--                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><i class="fa fa-bell-o"></i> <span class="badge badge-pill bg-danger float-right">3</span></a>-->
+<!--                    <div class="dropdown-menu notifications">-->
+<!--                        <div class="topnav-dropdown-header">-->
+<!--                            <span>Notifications</span>-->
+<!--                        </div>-->
+<!--                        <div class="drop-scroll">-->
+<!--                            <ul class="notification-list">-->
+<!--                                <li class="notification-message">-->
+<!--                                    <a href="activities.html">-->
+<!--                                        <div class="media">-->
+<!--											<span class="avatar">-->
+<!--												<img alt="John Doe" src="{% static 'homepage/assets/img/user.jpg' %}" class="img-fluid">-->
+<!--											</span>-->
+<!--											<div class="media-body">-->
+<!--												<p class="noti-details"><span class="noti-title">John Doe</span> added new task <span class="noti-title">Patient appointment booking</span></p>-->
+<!--												<p class="noti-time"><span class="notification-time">4 mins ago</span></p>-->
+<!--											</div>-->
+<!--                                        </div>-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                        <div class="topnav-dropdown-footer">-->
+<!--                            <a href="activities.html">View all Notifications</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--                <li class="nav-item dropdown d-none d-sm-block">-->
+<!--                    <a href="javascript:void(0);" id="open_msg_box" class="hasnotifications nav-link"><i class="fa fa-comment-o"></i> <span class="badge badge-pill bg-danger float-right">8</span></a>-->
+<!--                </li>-->
+
+                <li class="nav-item dropdown has-arrow">
+                    <a data-toggle="dropdown">
+                        <span>LV:{{request.user.level}}</span>
+                    </a>
+                </li>
+
+                <li class="nav-item dropdown has-arrow">
+                    <a data-toggle="dropdown">
+                        <span>{{request.user.coin}}</span>
+                    </a>
+                </li>
+
+                <li class="nav-item dropdown has-arrow">
+                    <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
+                        <span class="user-img">
+							<img class="rounded-circle" src="{% static 'homepage/assets/img/user.jpg' %}" width="24" alt="Admin">
+							<span class="status online"></span>
+						</span>
+						<span>{{request.user.username}}</span>
+                    </a>
+					<div class="dropdown-menu">
+<!--						<a class="dropdown-item" href="">My Profile</a>-->
+<!--						<a class="dropdown-item" href="">Edit Profile</a>-->
+                        <a class="dropdown-item" href="{% url 'app1:viewcoin' %}">Số dư ví</a>
+						<a class="dropdown-item" href="{% url 'app1:editpassword' %}">Đổi mật khẩu</a>
+						<a class="dropdown-item" href="{% url 'app1:logout' %}">Đăng xuất</a>
+					</div>
+                </li>
+            </ul>
+        </div>
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-inner slimscroll">
+                <div id="sidebar-menu" class="sidebar-menu">
+                    <ul>
+                       <li class="menu-title"></li>
+						<li>
+                            <a href="{% url 'app1:home' %}"><i></i> <span><h4><b>Thống kê</b></h4></span></a>
+                        </li>
+                        <li>
+                            <a href="{% url 'app1:bet_view' %}"><i></i> <span><h4><b>Đặt cược</b></h4></span></a>
+                        </li>
+                        <li>
+                            <a href="{% url 'app1:deal' %}"><i></i> <span><h4><b>Chuyển tiền</b></h4></span></a>
+                        </li>
+                        <li>
+                            <a href="{% url 'app1:inputcoin' %}"><i></i> <span><h4><b>Nạp tiền</b></h4></span></a>
+                        </li>
+                        <li>
+                            <a href="{% url 'app1:outputcoin' %}"><i></i> <span><h4><b>Rút tiền</b></h4></span></a>
+                        </li>
+						<li class="submenu">
+							<a href="#"><i></i> <span><h4><b>Lịch sử</b></h4></span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+                                <li><a href="{% url 'app1:historybet' %}">Lịch sử cược</a></li>
+                                <li><a href="{% url 'app1:historyinput' %}">Lịch sử nạp tiền</a></li>
+                                <li><a href="{% url 'app1:historyoutput' %}">Lịch sử rút tiền</a></li>
+                                <li><a href="{% url 'app1:historydeal' %}">Lịch sử chuyển tiền</a></li>
+                                <li><a href="{% url 'app1:historyreceive' %}">Lịch sử nhận tiền</a></li>
+							</ul>
+						</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="page-wrapper">
+            <div class="content">
+                {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert {{ message.tags }} m-2" id="msg" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                {% endif %}
+                {% block content %}
+
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-overlay" data-reff=""></div>
+    <script src="{% static 'homepage/assets/js/jquery-3.2.1.min.js' %}"></script>
+	<script src="{% static 'homepage/assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'homepage/assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'homepage/assets/js/jquery.slimscroll.js' %}"></script>
+    <script src="{% static 'homepage/assets/js/Chart.bundle.js' %}"></script>
+    <script src="{% static 'homepage/assets/js/chart.js' %}"></script>
+    <script src="{% static 'homepage/assets/js/app.js' %}"></script>
+    <script>
+        setTimeout(function () {
+            if ($('#msg').length > 0) {
+                $('#msg').remove();
+            }
+        }, 2000)
+        $('#plateViewModal').on('show.bs.modal', function (e) {
+            var src = $(e.relatedTarget).attr('image-source');
+            $("#plateImg").attr("src", src);
+        });
+    </script>
+</body>
+
+
+<!-- index22:59-->
+</html>

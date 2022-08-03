@@ -1,0 +1,22 @@
+
+{% extends 'index/index.html' %}
+    {% block content %}
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Reset Lại Hệ Thống</strong>
+                </div>
+                <div class="card-body">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Bạn có chắc muốn Reset lại không ?</label>
+                        </div>
+                        <button type="submit" data-href-template="" name="" value="" class="btn btn-primary mt-1">
+                           <a href="google.com" >Đồng ý</a>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% endblock %}

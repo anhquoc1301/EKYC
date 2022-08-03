@@ -1,0 +1,38 @@
+
+
+{% extends 'index/index.html' %}
+    {% block content %}
+<div class="col-md-6">
+    <div class="card">
+        <div class="card-header">
+            <strong>Thông Tin Ví Của Bạn</strong>
+        </div>
+        <div class="card-body">
+            <form>
+                {% csrf_token %}
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Mã code: </label>
+                    <div class="col-sm-9">
+                        <h7><b>{{form.code}}</b></h7>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Cấp độ: </label>
+                    <div class="col-sm-9">
+                        <h7><b>{{form.level}}</b></h7>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Số dư ví: </label>
+                    <div class="col-sm-9">
+                        <h7><b>{{form.coin}}</b></h7>
+                    </div>
+                </div>
+                <a href="{% url 'app1:inputcoin' %}">
+                    <h3>Nạp tiền</h3>
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+    {% endblock %}

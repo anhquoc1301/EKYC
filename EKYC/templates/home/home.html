@@ -1,0 +1,61 @@
+{% extends 'index/index.html' %}
+{% block content %}
+<div class="d-flex flex" id="content-body">
+    <div class="d-flex flex-column flex card">
+        <div class="padding">
+            <div class="row ">
+                 <div class="p-4">
+                    <h4 style="font-weight: 700;">Danh sách con</h4>
+                </div>
+                <div class="p-4">
+                    <h4 style="font-weight: 700;">Tổng giao dịch hệ thống:   <b>{{total}}</b></h4>
+                </div>
+                <div class="p-4">
+                    <h4 style="font-weight: 700;">Tổng cược của bạn:   <b>{{us.total_deal}}</b></h4>
+                </div>
+                <div class="p-4">
+                    <h4 style="font-weight: 700;">Tiền hoa hồng của bạn:  <b>{{bonus}}</b> </h4>
+                </div>
+                <table id="table" class="table" data-mobile-responsive="true"
+                    style="text-align: center;margin-top: 9px;">
+                    <thead>
+                        <tr>
+                            <th data-sortable="true" data-field="stt" style="width: 3cm;">Username</th>
+                            <th data-sortable="true" data-field="stt" style="width: 3cm;">Mã code</th>
+                            <th data-sortable="true" data-field="bsx" style="width: 5cm;">Level</th>
+                            <th data-sortable="true" data-field="date" style="width: 6cm;">Tổng cược tuần</th>
+                            <th data-sortable="true" data-field="task" style="width: 2cm;">Tác vụ</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in form %}
+                        <tr class=" " data-id="5">
+                            <td style="min-width:20px;">
+                                <small class="text-muted">{{ i.username }}</small>
+                            </td>
+                            <td style="min-width:20px;">
+                                <small class="text-muted">{{ i.code }}</small>
+                            </td>
+                            <td>{{i.level}}</td>
+                            <td>{{i.total_deal}}</td>
+                            <td class="text-right">
+                                <div class="dropdown dropdown-action">
+                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown"
+                                        aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="{% url 'app1:listf' i.code %}"><i
+                                                class="fa fa-pencil m-r-5"></i>Danh sách F</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

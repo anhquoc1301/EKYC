@@ -1,0 +1,31 @@
+{% extends 'index/index.html' %}
+    {% block content %}
+    <div class="content">
+        <div class="row">
+            <div class="col-sm-5 col-5">
+                <h4 class="page-title">Lịch sử nạp tiền</h4>
+            </div>
+        </div>
+            <table class="table" >
+                <thead class= "thead-blue">
+                    <tr>
+                        <th>ID</th>
+                        <th>Thời gian</th>
+                        <th>Số tiền nạp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in form %}
+                        <tr>
+                            <td style="min-width:20px;">
+                                <small class="text-muted">{{ forloop.counter }}</small>
+                            </td>
+                            <td>{{i.create_at}}</td>
+                            <td>{{i.coin_deal}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endblock %}

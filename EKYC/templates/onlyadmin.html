@@ -1,0 +1,63 @@
+
+
+{% extends 'index/index.html' %}
+    {% block content %}
+    <div class="col-md-6">
+                <li class="nav-item dropdown has-arrow">
+                        <a data-toggle="dropdown">
+                            <strong>Tổng dao dịch trong tuần:{{total}}</strong>
+                        </a>
+                </li>
+                <li class="nav-item dropdown has-arrow">
+                        <a data-toggle="dropdown">
+                            <strong>Tổng bonus trong tuần:{{bonus}}</strong>
+                        </a>
+                </li>
+                <form action="">
+                    {% csrf_token %}
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Số User LV5:</label>
+                        <div class="col-sm-9">
+                            <h5>{{lv5}}</h5>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label  class="col-sm-3 col-form-label">Số User LV4:</label>
+                        <div class="col-sm-9">
+                            <h5>{{lv4}}</h5>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label  class="col-sm-3 col-form-label">Số User LV3:</label>
+                        <div class="col-sm-9">
+                            <h5>{{lv3}}</h5>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label  class="col-sm-3 col-form-label">Số User LV2:</label>
+                        <div class="col-sm-9">
+                            <h5>{{lv2}}</h5>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Số User LV1:</label>
+                        <div class="col-sm-9">
+                            <h5>{{lv1}}</h5>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Số User LV0:</label>
+                        <div class="col-sm-9">
+                            <h5>{{lv0}}</h5>
+                        </div>
+                    </div>
+                </form>
+    </div>
+
+            <a href="{% url 'app1:resetweek'%}">
+                <div class="p-5">.
+                    <button  style="width:7cm ;">Reset</button>
+                </div>
+            </a>
+    {% endblock %}
